@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    return 'welcome';
+    return view('admin.test') ;
 });
 
 
