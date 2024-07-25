@@ -12,6 +12,10 @@ Route::get('/test', function () {
     return view('admin.test') ;
 });
 
+Route::get('/category', function () {
+    return view('admin.category') ;
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

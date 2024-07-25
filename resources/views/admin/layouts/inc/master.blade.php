@@ -26,12 +26,14 @@
     
 
   
-  <div class="container-scroller">
-    <div class="row p-0 m-0 proBanner" id="proBanner">
-      @include ('admin.layouts.inc.nav')
-      @include ('admin.layouts.inc.sidebar')
-        @yield('content')
-    </div>
+  <div class="container-scroller">    
+        @include ('admin.layouts.inc.nav')
+        <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        @include ('admin.layouts.inc.sidebar')
+        @yield('content')    
+        
+      </div>
   </div>
     
   
