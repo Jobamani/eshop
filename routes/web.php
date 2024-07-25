@@ -9,7 +9,11 @@ Route::get('/', function () {
 
 
 Route::get('/test', function () {
-    return 'welcome';
+    return view('admin.test') ;
+});
+
+Route::get('/category', function () {
+    return view('admin.category') ;
 });
 
 
