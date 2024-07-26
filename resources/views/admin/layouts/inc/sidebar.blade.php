@@ -16,115 +16,99 @@
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
+          <!-- Dashboard -->
             <li class="nav-item">
               <a class="nav-link" href="index.html">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
             </li>
+          <!-- end Dashboard -->
+           <!-- My profile -->
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                <span class="menu-title">Basic UI Elements</span>
+              <a class="nav-link" href="index.html">
+                <span class="menu-title">My Profile</span>
+                <i class="fa fa-user-circle-o menu-icon"></i>
+              </a>
+            </li>
+            <!-- end my profile -->
+
+             <!-- Manage category -->
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-category" aria-expanded="false" aria-controls="ui-category">
+                <span class="menu-title">Manage Category</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-crosshairs-gps menu-icon"></i>
+                <i class="fa fa-folder-open-o menu-icon"></i>
               </a>
-              <div class="collapse" id="ui-basic">
+              <div class="collapse" id="ui-category">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                    <a class="nav-link" href="pages/ui-features/buttons.html">All Category</a>
                   </li>
                 </ul>
               </div>
             </li>
+            <!-- End manage category -->
+            
+            <!-- manage products -->
             <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <span class="menu-title">Icons</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-              </a>
-              <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#forms" aria-expanded="false" aria-controls="forms">
-                <span class="menu-title">Forms</span>
-                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              </a>
-              <div class="collapse" id="forms">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/forms/basic_elements.html">Form Elements</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <span class="menu-title">Charts</span>
-                <i class="mdi mdi-chart-bar menu-icon"></i>
-              </a>
-              <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <span class="menu-title">Tables</span>
-                <i class="mdi mdi-table-large menu-icon"></i>
-              </a>
-              <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <span class="menu-title">User Pages</span>
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-products" aria-expanded="false" aria-controls="ui-products">
+                <span class="menu-title">Manage Products</span>
                 <i class="menu-arrow"></i>
-                <i class="mdi mdi-lock menu-icon"></i>
+                <i class="fa fa-th-large menu-icon"></i>
               </a>
-              <div class="collapse" id="auth">
+              <div class="collapse" id="ui-products">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/login.html"> Login </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/register.html"> Register </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+                    <a class="nav-link" href="pages/ui-features/buttons.html">All Products</a>
                   </li>
                 </ul>
               </div>
             </li>
+            <!-- end manage products -->
+
+            <!-- Manage customer -->
             <li class="nav-item">
-              <a class="nav-link" href="docs/documentation.html" target="_blank">
-                <span class="menu-title">Documentation</span>
-                <i class="mdi mdi-file-document-box menu-icon"></i>
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-customer" aria-expanded="false" aria-controls="ui-customer">
+                <span class="menu-title">Manage Customer</span>
+                <i class="menu-arrow"></i>
+                <i class="fa fa-users menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-customer">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="pages/ui-features/buttons.html">All Customer</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <!-- end manage customer -->
+
+            <!-- Manage order -->
+
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-order" aria-expanded="false" aria-controls="ui-order">
+                <span class="menu-title">Manage Order</span>
+                <i class="menu-arrow"></i>
+                <i class="fa fa-list-alt menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-order">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="pages/ui-features/buttons.html">All Orders</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <!-- end manage order -->
+
+            <!-- Logout -->
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <span class="menu-title">Log Out</span>
+                <i class="fa fa-sign-out menu-icon"></i>
               </a>
             </li>
+          <!-- end logout -->
           </ul>
         </nav>
