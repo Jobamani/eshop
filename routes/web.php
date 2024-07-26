@@ -1,18 +1,32 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\AdminController;
+
 use Illuminate\Support\Facades\Route;
+
+
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::get('/test', function () {
-    return view('admin.test') ;
-});
+Route::get('/admin/dashboard',[AdminController::class,'index']);
+
+Route::get('/admin/load-blank-page', [AdminController::class,'loadBlankPage']);   
+
+Route::get('/admin/category-page', [AdminController::class,'categoryPage']);   
 
 
+  
+
+
+
+
+
+// Laravel default routes
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
