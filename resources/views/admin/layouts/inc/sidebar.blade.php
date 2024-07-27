@@ -10,15 +10,15 @@
                   <!--change to offline or busy as needed-->
                 </div>
                 <div class="nav-profile-text d-flex flex-column">
-                  <span class="font-weight-bold mb-2">David Grey. H</span>
-                  <span class="text-secondary text-small">Project Manager</span>
+                  <span class="font-weight-bold mb-2">{{ auth()->user()->name }}</span>
+                  <span class="text-secondary text-small">Adminstator</span>
                 </div>
                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
               </a>
             </li>
           <!-- Dashboard -->
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{route('admin.dashboard')}}">
                 <span class="menu-title">Dashboard</span>
                 <i class="mdi mdi-home menu-icon"></i>
               </a>
@@ -26,7 +26,7 @@
           <!-- end Dashboard -->
            <!-- My profile -->
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="{{route('myprofile')}}">
                 <span class="menu-title">My Profile</span>
                 <i class="fa fa-user-circle-o menu-icon"></i>
               </a>
@@ -43,7 +43,7 @@
               <div class="collapse" id="ui-category">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/buttons.html">All Category</a>
+                    <a class="nav-link" href={{route('managecategory')}}>All Category</a>
                   </li>
                 </ul>
               </div>
@@ -60,7 +60,7 @@
               <div class="collapse" id="ui-products">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/buttons.html">All Products</a>
+                    <a class="nav-link" href={{route('manageproducts')}}>All Products</a>
                   </li>
                 </ul>
               </div>
@@ -77,7 +77,7 @@
               <div class="collapse" id="ui-customer">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/buttons.html">All Customer</a>
+                    <a class="nav-link" href="{{route('managecustomer')}}">All Customer</a>
                   </li>
                 </ul>
               </div>
@@ -95,16 +95,18 @@
               <div class="collapse" id="ui-order">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="pages/ui-features/buttons.html">All Orders</a>
+                    <a class="nav-link" href="{{route('manageorder')}}">All Orders</a>
                   </li>
                 </ul>
               </div>
             </li>
             <!-- end manage order -->
-
+            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
             <!-- Logout -->
             <li class="nav-item">
-              <a class="nav-link" href="index.html">
+              <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <span class="menu-title">Log Out</span>
                 <i class="fa fa-sign-out menu-icon"></i>
               </a>

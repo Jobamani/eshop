@@ -1,0 +1,1 @@
+<h1>Manage Customer Page</h1>

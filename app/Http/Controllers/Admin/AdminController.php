@@ -19,7 +19,27 @@ class AdminController extends Controller
         return view('admin.category');
     }
 
+    public function myProfilePage() {        
+        return view('admin.myprofile');
+    }
 
+    public function manageCategoryPage() {        
+        return view('admin.managecategory');
+    }
+
+    public function manageProductsPage() {        
+        return view('admin.manageproducts');
+    }
+
+    public function manageCustomerPage() {        
+        return view('admin.managecustomer');
+    }
+
+    public function manageOrderPage() {        
+        return view('admin.manageorder');
+    }
+
+  
 
     // Rules
     /**
