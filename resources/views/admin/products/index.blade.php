@@ -1,5 +1,3 @@
-<h1>Manage Products</h1>
-
 @extends('admin.layouts.inc.master')
 
 @section('content')
@@ -9,7 +7,7 @@
         <div class="content-wrapper">
         <!-- page title  -->
         <div class="page-header">
-            <h3 class="page-title"> Categories </h3>
+            <h3 class="page-title"> Products </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item "><a href="{{route('admin.dashboard')}}">Admin</a></li>
@@ -48,14 +46,14 @@
                       </thead>
                                            
                       <tbody>
-                      @foreach( $products as $row)  
+                      @foreach($products as $row) 
                         <tr>
                           <td>{{$row->id}}</td>
                           <td>{{$row->name}}</td>
                           <td>{{$row->description}}</td>
                           <td>
                               @if($row->image)
-                                  <a href="{{ route('product.image', $category->id) }}">
+                                  <a href="{{ route('product.image', $product->id) }}">
                                   <img class="btn-btn-info mg-2" src="{{ asset('assets/https://4.imimg.com/data4/OX/UR/MY-30067290/women-apperal-500x500.jpg' . $category->image) }}" alt="{{ $category->name}}" width="100" style="margin: 5px";>
                               @endif
                           </td>

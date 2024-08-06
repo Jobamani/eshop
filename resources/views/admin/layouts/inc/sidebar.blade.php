@@ -43,7 +43,7 @@
               <div class="collapse" id="ui-category">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href={{route('managecategory')}}>All Category</a>
+                    <a class="nav-link" href="{{route('managecategory')}}">All Category</a>
                   </li>
                 </ul>
               </div>
@@ -60,7 +60,7 @@
               <div class="collapse" id="ui-products">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href={{route('manageproducts')}}>All Products</a>
+                    <a class="nav-link" href="{{route('manageproducts')}}">All Products</a>
                   </li>
                 </ul>
               </div>
@@ -100,7 +100,8 @@
                 </ul>
               </div>
             </li>
-            <!-- end manage order -->
+            @if(Auth::guard('admin')->check())
+
             <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
@@ -112,5 +113,21 @@
               </a>
             </li>
           <!-- end logout -->
+          @elseif(Auth::guard('web')->check())
+            <form  id="logout-form2" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            <!-- Logout -->
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form2').submit();">
+                <span class="menu-title">Log Out</span>
+                <i class="fa fa-sign-out menu-icon"></i>
+              </a>
+            </li>
+          @endif
+     
+           
           </ul>
         </nav>
+
+       
