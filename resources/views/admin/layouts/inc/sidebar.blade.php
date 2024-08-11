@@ -60,7 +60,9 @@
               <div class="collapse" id="ui-products">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('manageproducts')}}">All Products</a>
+                    <a class="nav-link" href="{{route('products.index')}}">All Products</a>
+                    <a class="nav-link" href="{{route('product.men')}}">Men</a>
+                    <a class="nav-link" href="{{route('product.women')}}">Women</a>
                   </li>
                 </ul>
               </div>

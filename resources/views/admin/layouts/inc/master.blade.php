@@ -14,6 +14,8 @@
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{asset('assets/vendors/font-awesome/css/font-awesome.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css')}}">
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{asset('assets/vendors/select2/select2.min.css')}}">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -54,6 +56,12 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <script src="{{asset('assets/js/dashboard.js')}}"></script>
+
+      <!-- Custom js for this page -->
+    <script src="{{asset('assets/js/file-upload.js')}}"></script>
+    <script src="{{asset('assets/js/typeahead.js')}}"></script>
+    <script src="{{asset('assets/js/select2.js')}}"></script>
+    <!-- End custom js for this page -->
     <!-- End custom js for this page -->
   <!-- Code injected by live-server -->
 <script>

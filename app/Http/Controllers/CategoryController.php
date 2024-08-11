@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-
+use Storage;
 class CategoryController extends Controller
 {
     public function index()
@@ -64,7 +64,7 @@ class CategoryController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
+    {        
         // Validate the request data
         $request->validate([
             'name' => 'required|string|max:15|not_regex:/^\d+$/',

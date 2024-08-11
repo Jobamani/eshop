@@ -37,7 +37,7 @@
                         <tr>
                           <th>Category Id</th>
                           <th>Category Name</th>
-                          <th>Description</th>   
+                          <th>Description</th>                            
                           <th>image</th>                        
                           <th>Status</th>
                           <th>Action</th>
