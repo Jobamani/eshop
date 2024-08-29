@@ -39,7 +39,7 @@
                           <th>Product Name</th>
                           <th>Description</th> 
                           <th>Category</th>   
-                          <th>Image</th> 
+                          <th>Image</th>  
                           <th>Mrp Price</th> 
                           <th>Selling Price</th>                        
                           <th>Status</th>

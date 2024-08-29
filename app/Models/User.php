@@ -11,16 +11,34 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected $tablename='users';
+    protected $primarykey = 'id';
     protected $fillable = [
         'name',
         'email',
         'password',
+        'phone_no',
+        'gender',
+        'image',
+        'suspended',
+        'status',
+
+   
+
+
     ];
+
+         
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

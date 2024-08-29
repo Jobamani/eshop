@@ -7,6 +7,8 @@ use App\Http\Middleware\RedirectIfNotAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
 
 
 
@@ -59,8 +61,8 @@ Route::prefix('admin')->group(function () {
         Route::get('myprofile-page', [AdminController::class, 'myProfilePage'])->name('myprofile');
         // Route::get('managecategory-page', [AdminController::class, 'manageCategoryPage'])->name('managecategory');
         // Route::get('manageproducts-page', [AdminController::class, 'manageProductsPage'])->name('manageproducts');
-        Route::get('managecustomer-page', [AdminController::class, 'manageCustomerPage'])->name('managecustomer');
-        Route::get('manageorder-page', [AdminController::class, 'manageOrderPage'])->name('manageorder');
+        // Route::get('managecustomer-page', [AdminController::class, 'manageCustomerPage'])->name('managecustomer');
+        // Route::get('manageorder-page', [AdminController::class, 'manageOrderPage'])->name('manageorder');
 
         // Manage Category
         Route::get('categories', [CategoryController::class,'index'])->name('managecategory');
@@ -77,7 +79,7 @@ Route::prefix('admin')->group(function () {
         // Route::get('products', [ProductController::class,'index'])->name('manageproduct');   
                
         Route::get('products', [ProductController::class, 'index'])->name('products.index');
-        Route::get('product/image/{id}', [ProductController::class, 'showImage'])->name('product.image');
+        // Route::get('product/image/{id}', [ProductController::class, 'showImage'])->name('product.image');
         Route::get('product-edit/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
         Route::get('product-destroy/{id}/destroy', [ProductController::class, 'destroy'])->name('product.destroy');
         Route::post('product-update/{id}', [ProductController::class, 'update'])->name('product.update');
@@ -88,6 +90,25 @@ Route::prefix('admin')->group(function () {
         Route::get('product-image/{id}', [ProductController::class, 'image'])->name('product.image');
         Route::get('/men', [ProductController::class, 'men'])->name('product.men');
         Route::get('/women', [ProductController::class, 'women'])->name('product.women');
+
+        //Manage customer
+
+        Route::get('customers', [CustomerController::class, 'index'])->name('customers.index');
+        Route::get('customers-create', [CustomerController::class,'create'])->name('admin.customers.create');
+        Route::post('customers-store', [CustomerController::class, 'store'])->name('admin.customers.store');
+        Route::get('customers-edit-page/{id}/edit', [CustomerController::class, 'edit'])->name('customers.edit');
+        Route::post('customers-update/{id}', [CustomerController::class, 'update'])->name('customers.update');
+        Route::get('customers-destroy/{id}/destroy', [CustomerController::class, 'destroy'])->name('customers.destroy');
+
+
+        //Manage orders
+
+        Route::get('orders', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('orders-create', [OrderController::class,'create'])->name('admin.orders.create');
+        Route::post('orders-store', [OrderController::class, 'store'])->name('admin.orders.store');
+        Route::get('orders-view-page/{id}/view', [OrderController::class, 'edit'])->name('orders.view');
+        Route::post('orders-update/{id}', [OrderController::class, 'update'])->name('orders.update');
+        Route::get('orders-destroy/{id}/destroy', [OrderController::class, 'destroy'])->name('orders.destroy');
 
         
     });
