@@ -41,7 +41,10 @@
                           <th>Customer Name</th>
                           <th>Order Number</th>  
                           <th>Total Amount</th>  
-                          <th>Action</th>                         
+                          <th>Status</th> 
+                          <th>Action</th>  
+                          
+                       
                           <th>Create Date</th>
                         </tr>
                       </thead>
@@ -53,7 +56,8 @@
                                 <td>{{$row->id}}</td>
                                 <td>{{$row->customer->name}}</td>
                                 <td>{{$row->order_number}}</td>
-                                <td>{{$row->total_amount}}</td>                               
+                                <td>{{$row->total_amount}}</td>
+                                <td>{{$row->status }}</td>                               
                                 
                                 <td>
                                 <a class="badge badge-primary" href="{{url('admin/orders-view-page/'.$row->id.'/view')}}">View</a>

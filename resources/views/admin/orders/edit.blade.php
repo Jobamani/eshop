@@ -35,7 +35,7 @@
                   <div class="card-body">
                     <h4 class="card-title">edit</h4>
                     <p class="card-description"> Basic form layout </p>
-                    <form action="{{route('orders.update',$Customers->id)}}" enctype="multipart/form-data" method="POST" >
+                    <form action="" enctype="multipart/form-data" method="POST" >
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputname1">User_Id</label>

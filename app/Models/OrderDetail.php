@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Product;
 
 
 class OrderDetail extends Model
@@ -14,10 +15,13 @@ class OrderDetail extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function products()
+    // Define the relationship to Product
+    public function product()
     {
-        return $this->belongsToMany(Product::class, 'order_details')
-            ->withPivot('quantity', 'price')
-            ->withTimestamps();
+        return $this->belongsTo(Product::class, 'product_id');
     }
+
+
+ 
+
 }
