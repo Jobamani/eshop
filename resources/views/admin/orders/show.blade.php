@@ -34,7 +34,7 @@
                                 {{ $order->status ?? 'Pending' }} <!-- Show status or default to 'Pending' -->
                             </td>
                             <td>
-                                <button class="btn btn-warning" data-toggle="modal" data-value="{{ $order->id }}" data-target="#changeStatus">Change Status</button>
+                                <button class="btn btn-warning changeStatusbtn"  data-toggle="modal"  data-value="{{ $order->id }}" data-target="#changeStatus">Change Status</button>
                             </td>
                         </tr>                    
                     @endforeach
@@ -56,12 +56,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('orders.changeStatus') }}" method="POST">
-                        @csrf
+                    <!-- Display order ID here -->
+                <div id="modalOrderIdDisplay"></div>
+                <form action="{{ route('orders.changeStatus')}}" method="POST">
                         <!-- Hidden input to hold the order ID -->
-                        <input type="hidden" name="order_id" id="modalOrderId">
-                        
-                        <div id="modalOrderIdDisplay"></div>
+                        @csrf
+                        <input type="hidden" name="order_id" id="modalOrderId" value="">                
 
                         <div class="form-group">
                             <label for="status">Select Status</label>
@@ -84,27 +84,31 @@
     </div>
     <!-- End of Modal Code -->
 </div>
+@endsection
 
-
+@push('page-script')
 <script>
     $(document).ready(function () {
         console.log("click");
         // When the modal is shown
-        $('#changeStatus').on('click', function (event) {
-            console.log("click");
+        $('.changeStatusbtn').on('click', function (event) {
+            console.log("click inside");
             // Button that triggered the modal
-            var button = $(event.relatedTarget);
+          
             
             // Extract the order ID from the button's data-* attribute
-            var orderId = button.data('value');
+            var orderId = $(this).data('value');
+            $('#modalOrderId').val(orderId);
+            
+
+          
             console.log("order", orderId);
             
             // Find the modal and set the order ID in the modal's body and hidden input field
-            var modal = $(this);
-            modal.find('#modalOrderIdDisplay').text('Order ID: ' + orderId); // Display in div
-            modal.find('#modalOrderId').val(orderId); // Set in hidden input field
+            
+            // modal.find('#modalOrderIdDisplay').text('Order ID: ' + orderId); // Display in div
+            // modal.find('#modalOrderId').val(orderId); // Set in hidden input field
         });
     });
 </script>
-
-@endsection
+@endpush

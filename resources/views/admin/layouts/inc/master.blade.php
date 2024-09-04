@@ -48,6 +48,7 @@
     <!-- footer scripts -->
     <!-- container-scroller -->
     <!-- plugins:js -->
+
     <script src="{{asset('assets/vendors/js/vendor.bundle.base.js')}}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -71,6 +72,6 @@
     <!-- End custom js for this page -->
     <!-- End custom js for this page -->
   <!-- Code injected by live-server -->
-
+  @stack('page-script')
 </body>
 </html>

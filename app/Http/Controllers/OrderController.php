@@ -25,12 +25,12 @@ class OrderController extends Controller
     {
         // Validate the request
         $request->validate([
-            'order_id' => 'required|exists:orders,id',
-            'status' => 'required|in:pending,success,on_the_way'
+            'order_id' => 'required|exists:order_details,id',
+            'status' => 'required',
         ]);
 
         // Find the order by ID and update its status
-        $order = Order::find($request->order_id);
+        $order = Orderdetail::find($request->order_id);
         $order->status = $request->status;
         $order->save();
 
