@@ -2224,11 +2224,11 @@ Version:1.0
 .shop .nice-select {
 	clear: initial;
 	display: inline-block;
-	margin: 0;
+	/* margin: 0; */
 	border: 1px solid #e6e6e6;
 	border-radius: 0px;
 	height: auto;
-	width: auto;
+	/* width: auto; */
 	border-radius: 0px;
 }
 .shop .nice-select::after{

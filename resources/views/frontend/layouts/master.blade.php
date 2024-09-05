@@ -54,8 +54,18 @@
 		</div>
 	</div>
 	<!-- End Preloader -->
+    @php    
+        if(empty($hide))
+        {
+            $hide= false;
+        }
+    @endphp
 
-    @include('frontend.layouts.navbar')
+    @if($hide)
+         @include('frontend.layouts.navCat')
+    @else
+        @include('frontend.layouts.navbar')
+    @endif
     @yield('content')
 
 

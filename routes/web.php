@@ -9,13 +9,20 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\FrontendpageController;
 
 
 
 
-Route::get('/', function () {
-    return view('frontend.homepage');
-});
+// Route::get('/', function () {
+//     return view('frontend.homepage');
+// });
+
+Route::get('/', [FrontendpageController::class, 'index'])->name('homepage');
+Route::get('/home', [FrontendpageController::class, 'index']);
+Route::get('/product-lists/category/{category_id}', [FrontendpageController::class, 'productList'])->name('product.list');
+Route::get('/product-details/{product_id}', [FrontendpageController::class, 'productDetails'])->name('product.detail');
+
 
 
 
