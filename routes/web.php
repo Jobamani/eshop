@@ -10,6 +10,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FrontendpageController;
+use App\Http\Controllers\CartController;
 
 
 
@@ -23,7 +24,13 @@ Route::get('/home', [FrontendpageController::class, 'index']);
 Route::get('/product-lists/category/{category_id}', [FrontendpageController::class, 'productList'])->name('product.list');
 Route::get('/product-details/{product_id}', [FrontendpageController::class, 'productDetails'])->name('product.detail');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::delete('/cart/{id}', [CartController::class, 'removeCartItem'])->name('cart.remove');
+    Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 
+});
 
 
 

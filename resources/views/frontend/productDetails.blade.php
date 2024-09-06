@@ -48,7 +48,7 @@
 								</div>
 								<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 									<div class="quickview-content">
-										<h2>Flared Shift Dress</h2>
+										<h2>{{$products->name}}</h2>
 										<div class="quickview-ratting-review">
 											<div class="quickview-ratting-wrap">
 												<div class="quickview-ratting">
@@ -64,9 +64,9 @@
 												<span><i class="fa fa-check-circle-o"></i> in stock</span>
 											</div>
 										</div>
-										<h3>$29.00</h3>
+										<h3>RS {{$products->selling_price}}</h3>
 										<div class="quickview-peragraph">
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui nemo ipsum numquam.</p>
+											<p>{{$products->description}}</p>
 										</div>
 										<div class="size">
 											<div class="row">
@@ -108,7 +108,8 @@
 											<!--/ End Input Order -->
 										</div>
 										<div class="add-to-cart">
-											<a href="#" class="btn">Add to cart</a>
+											<a href="#" class="btn add-to-cart-btn" data-product-id="{{ $products->id }}" data-quantity-input="quant[1]" data-url="{{ route('cart.add') }}">Add to cart</a>
+
 											<a href="#" class="btn min"><i class="ti-heart"></i></a>
 											<a href="#" class="btn min"><i class="fa fa-compress"></i></a>
 										</div>
@@ -173,3 +174,57 @@
 			</div>
 			<!-- Modal end -->
      @endsection
+
+@push('page-script')
+
+<script>
+$(document).ready(function() {
+	console.log("i am calling");
+    $('.add-to-cart-btn').on('click', function(e) {
+        e.preventDefault();
+		console.log("i am calling click button");
+        var productId = $(this).data('product-id');
+        var quantityField = $(this).data('quantity-input');
+		console.log(quantityField);
+        var quantity = $("input[name='"+quantityField+"']").val();
+		console.log(quantity);
+        var url = $(this).data('url');
+
+		$.ajax({
+            url: url,
+            method: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                product_id: productId,
+                quantity: quantity
+            },
+            success: function(response) {
+                if (response.status === 'success') {
+                    // alert(response.message);
+                    // Optionally update cart count or other UI changes
+					// Show SweetAlert2 Popup
+					Swal.fire({
+                        title: 'Added to Cart!',
+                        text: response.message,
+                        icon: 'success',
+						showConfirmButton: false,
+						timer: 1500, // Auto-close after 2 seconds
+
+                    });
+                }
+            },
+            error: function(response) {
+				Swal.fire({
+                    title: 'Error!',
+                    text: 'Something went wrong. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                });
+            }
+        });
+	});
+
+
+});
+</script>		
+@endpush

@@ -41,6 +41,10 @@
 	<link rel="stylesheet" href="{{asset('frontend/css/reset.css')}}">
 	<link rel="stylesheet" href="{{asset('frontend/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/css/responsive.css')}}">
+
+    <!-- Sweet message css -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.27/dist/sweetalert2.min.css" rel="stylesheet">
+
     @stack('page-style')
 	<body class="js">
 	
@@ -102,6 +106,10 @@
 	<script src="{{asset('frontend/js/easing.js')}}"></script>
 	<!-- Active JS -->
 	<script src="{{asset('frontend/js/active.js')}}"></script>
+
+    <!-- Sweet Message -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @stack('page-script')
 </body>
 </html>
