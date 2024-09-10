@@ -10,6 +10,11 @@ use App\Models\Product;
 class OrderDetail extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'order_id', 'product_id', 'status','price','quantity'// other fields
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

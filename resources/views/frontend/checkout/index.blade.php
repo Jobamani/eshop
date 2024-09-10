@@ -11,7 +11,7 @@
 					<div class="bread-inner">
 						<ul class="bread-list">
 							<li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="blog-single.html">Cart</a></li>
+							<li class="active"><a href="blog-single.html">Checkout</a></li>
 						</ul>
 					</div>
 				</div>
@@ -20,104 +20,138 @@
 	</div>
 	<!-- End Breadcrumbs -->
 			
-	<!-- Shopping Cart -->
-	<div class="shopping-cart section">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<!-- Shopping Summery -->
-					<table class="table shopping-summery">
-						<thead>
-							<tr class="main-hading">
-								<th>PRODUCT</th>
-								<th>NAME</th>
-								<th class="text-center">UNIT PRICE</th>
-								<th class="text-center">QUANTITY</th>
-								<th class="text-center">TOTAL</th> 
-								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
-							</tr>
-						</thead>
-						<tbody>
-                        @foreach($cartItems as $cartItem)
-                        <tr>
-                            <td class="image" data-title="No"><img src="https://via.placeholder.com/100x100" alt="#"></td>
-                            <td class="product-des" data-title="Description">
-                                <p class="product-name"><a href="#">{{$cartItem->product->name}}</a></p>
-                                <p class="product-des">{{$cartItem->product->description}}</p>
-                            </td>
-                            <td class="price" data-title="Price"><span>RS {{$cartItem->product->mrp_price}}</span></td>
-                            <td class="qty" data-title="Qty">
-                                <!-- Input Order -->
-                                <div class="input-group">
-                                    <div class="button minus">
-                                        <button type="button" class="btn btn-primary btn-number" data-type="minus" data-id="{{ $cartItem->id }}">
-                                            <i class="ti-minus"></i>
-                                        </button>
-                                    </div>
-                                    <input type="text" name="quant[{{ $cartItem->id }}]" class="input-number" data-min="1" data-max="100" value="{{ $cartItem->quantity }}" id="cart-quantity-{{ $cartItem->id }}">
-                                    <div class="button plus">
-                                        <button type="button" class="btn btn-primary btn-number" data-type="plus" data-id="{{ $cartItem->id }}">
-                                            <i class="ti-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="total-amount" data-title="Total"><span id="cart-total-{{ $cartItem->id }}">RS {{$cartItem->product->mrp_price * $cartItem->quantity}}</span></td>
-                            <td class="action" data-title="Remove">
-                            <button type="button" class="btn btn-danger remove-cart-item" data-id="{{ $cartItem->id }}">
-                                <i class="ti-trash remove-icon"></i>
-                            </button>
-                        </td>
-
-                        </tr>
-                        @endforeach
-
-						</tbody>
-					</table>
-					<!--/ End Shopping Summery -->
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
-					<!-- Total Amount -->
-					<div class="total-amount">
-						<div class="row">
-							<div class="col-lg-8 col-md-5 col-12">
-								<div class="left">
-									<div class="coupon">
-										<form action="#" target="_blank">
-											<input name="Coupon" placeholder="Enter Your Coupon">
-											<button class="btn">Apply</button>
-										</form>
+		<!-- Start Checkout -->
+		<section class="shop checkout section">
+			<div class="container">
+				<div class="row"> 
+					<div class="col-lg-8 col-12">
+						<div class="checkout-form">
+							<h2>Make Your Checkout Here</h2>
+							<p>Please register in order to checkout more quickly</p>
+							<!-- Form -->
+							<form class="form" method="post" action="{{route('place.order')}}">
+							@csrf
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="form-group">
+											<label>Name<span>*</span></label>
+											<input type="text" name="name" placeholder="" required="required" value="{{auth()->user()->name}}">
+										</div>
 									</div>
-									<div class="checkbox">
-										<label class="checkbox-inline" for="2"><input name="news" id="2" type="checkbox"> Shipping (+50 Rs)</label>
+
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="form-group">
+											<label>Email Address<span>*</span></label>
+											<input type="email" name="email" placeholder="" required="required"  value="{{auth()->user()->email}}">
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="form-group">
+											<label>Phone Number<span>*</span></label>
+											<input type="number" name="number" placeholder="" required="required"  value="{{auth()->user()->phone_no}}">
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="form-group">
+											<label>Country<span>*</span></label>
+											<select name="country" id="country">
+												<option value="india" selected="selected">INDIA</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="form-group">
+											<label>State / Divition<span>*</span></label>
+											<select name="state" id="state-province">
+												<option value="hyderabad" selected="selected">Hyderabad</option>											
+											</select>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="form-group">
+											<label>Address<span>*</span></label>
+											<textarea name="address" id=""></textarea>
+										</div>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-12">
+										<div class="form-group">
+											<label>Postal Code<span>*</span></label>
+											<input type="text" name="pincode" placeholder="" required="required">
+										</div>
+									</div>
+
+									<div class="col-12">
+										<div class="form-group create-account">
+											<input id="cbox" type="checkbox">
+											<label>Create an account?</label>
+										</div>
+									</div>
+								</div>
+							
+						</div>
+					</div>
+					<div class="col-lg-4 col-12">
+						<div class="order-details">
+							<!-- Order Widget -->
+							<div class="single-widget">
+								<h2>CART  TOTALS</h2>
+								<div class="content">
+								<ul>
+								
+									@foreach($cartItems as $item)									
+											<li>{{ $item->product->name }} - {{ $item->quantity }} x RS {{ $item->product->mrp_price }}</li>
+											<li>Sub Total: RS {{ $item->quantity * $item->product->mrp_price }}</li>
+											<li class="last">Total: RS {{ $item->quantity * $item->product->selling_price }}</li>
+											<input type="hidden" name="cart_value" value="{{ $item->quantity * $item->product->selling_price }}">
+									@endforeach
+									</ul>
+
+								</div>
+							</div>
+							<!--/ End Order Widget -->
+							<!-- Order Widget -->
+							<div class="single-widget">
+								<h2>Payments</h2>
+								<div class="content">
+										<div class="radio ml-4">
+											<label class="radio-inline">
+												<input class="radio-inline"  type="radio" name="payment_method" value="cod" id="2"> Cash On Delivery
+											</label>
+											</br>
+											<label class="radio-inline">
+												<input class="radio-inline"  type="radio" name="payment_method" value="prepaid" id="3"> Online /UPI
+											</label>
+										</div>
+									</div>
+							</div>
+							<!--/ End Order Widget -->
+						
+							<!-- Payment Method Widget -->
+							<div class="single-widget payement">
+								<div class="content">
+									<img src="{{asset('frontend/images/payment-method.png')}}" alt="#">
+								</div>
+							</div>
+							<!--/ End Payment Method Widget -->
+							<!-- Button Widget -->
+							<div class="single-widget get-button">
+								<div class="content">
+									<div class="button">
+										<!-- <a href="#" class="btn">proceed to checkout</a> -->
+										<input type="submit" value="proceed to checkout" class="btn">
 									</div>
 								</div>
 							</div>
-                            <div class="col-lg-4 col-md-7 col-12">
-                            <div class="right">
-                                <ul>
-                                    <li>Cart Subtotal<span>RS {{ number_format($cartSubtotal, 2) }}</span></li>
-                                    <li>Shipping<span>{{ $shippingCost > 0 ? 'RS ' . number_format($shippingCost, 2) : 'Free' }}</span></li>
-                                    <li>You Save<span>RS {{ number_format($cartSavings, 2) }}</span></li>
-                                    <li class="last">You Pay<span>RS {{ number_format($cartTotal, 2) }}</span></li>
-                                </ul>
-                                <div class="button5">
-                                    <a href="{{route('checkout.index')}}" class="btn">Checkout</a>
-                                    <a href="{{route('homepage')}}" class="btn">Continue shopping</a>
-                                </div>
-                            </div>
-                            </div>
-
+							<!--/ End Button Widget -->
+							</form>
+							<!--/ End Form -->
 						</div>
 					</div>
-					<!--/ End Total Amount -->
 				</div>
 			</div>
-		</div>
-	</div>
-	<!--/ End Shopping Cart -->
+		</section>
+		<!--/ End Checkout -->
 			
 	<!-- Start Shop Services Area  -->
 	<section class="shop-services section">
