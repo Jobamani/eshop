@@ -33,6 +33,7 @@
 				</div>
 			</div>
 		</section>
+		</section>
 		<!--/ End Checkout -->
 			
 	<!-- Start Shop Services Area  -->

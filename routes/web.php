@@ -12,6 +12,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\FrontendpageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\RazorpayController;
 
 
 
@@ -39,6 +40,14 @@ Route::middleware('auth')->group(function () {
 
 
 });
+
+//Razorpay
+
+Route::get('razorpay-payment', [RazorpayController::class, 'create'])->name('razorpay.payment');
+Route::post('razorpay-payment', [RazorpayController::class, 'store'])->name('razorpay.store');
+Route::post('razorpay-success', [RazorpayController::class, 'success'])->name('razorpay.success');
+Route::get('razorpay-failure', [RazorpayController::class, 'failure'])->name('razorpay.failure');
+
 
 
 

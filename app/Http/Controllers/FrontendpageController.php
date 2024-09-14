@@ -11,7 +11,7 @@ class FrontendpageController extends Controller
     public function index()
     {
         $category = Category::all();
-        
+    
         return view('frontend.homepage', compact('category'));
     }
 

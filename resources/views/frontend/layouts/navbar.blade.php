@@ -36,7 +36,7 @@
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="index.html"><img src="{{asset('frontend/images/logo.png')}}" alt="logo"></a>
+							<a href="/"><img src="{{asset('frontend/images/logo.png')}}" alt="logo"></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->

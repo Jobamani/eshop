@@ -11,7 +11,7 @@
 					<div class="bread-inner">
 						<ul class="bread-list">
 							<li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="blog-single.html">Checkout</a></li>
+							<li class="active"><a href="blog-single.html">Success</a></li>
 						</ul>
 					</div>
 				</div>
@@ -24,152 +24,15 @@
 		<section class="shop checkout section">
 			<div class="container">
 				<div class="row"> 
+				
 					<div class="col-lg-8 col-12">
-						<div class="checkout-form">
-							<h2>Make Your Checkout Here</h2>
-							<p>Please register in order to checkout more quickly</p>
-							<!-- Form -->
-							<form class="form" method="post" action="{{route('place.order')}}">
-							@csrf
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Name<span>*</span></label>
-											<input type="text" name="name" placeholder="" required="required" value="{{auth()->user()->name}}">
-										</div>
-									</div>
-
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Email Address<span>*</span></label>
-											<input type="email" name="email" placeholder="" required="required"  value="{{auth()->user()->email}}">
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Phone Number<span>*</span></label>
-											<input type="number" name="number" placeholder="" required="required"  value="{{auth()->user()->phone_no}}">
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Country<span>*</span></label>
-											<select name="country" id="country">
-												<option value="india" selected="selected">INDIA</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>State / Divition<span>*</span></label>
-											<select name="state" id="state-province">
-												<option value="hyderabad" selected="selected">Hyderabad</option>											
-											</select>
-										</div>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Address<span>*</span></label>
-											<textarea name="address" id=""></textarea>
-										</div>
-									</div>
-
-									<div class="col-lg-6 col-md-6 col-12">
-										<div class="form-group">
-											<label>Postal Code<span>*</span></label>
-											<input type="text" name="pincode" placeholder="" required="required">
-										</div>
-									</div>
-
-									<div class="col-12">
-										<div class="form-group create-account">
-											<input id="cbox" type="checkbox">
-											<label>Create an account?</label>
-										</div>
-									</div>
-								</div>
-							
-						</div>
-					</div>
-					<div class="col-lg-4 col-12">
-						<div class="order-details">
-							<!-- Order Widget -->
-							<div class="single-widget">
-								<h2>CART  TOTALS</h2>
-								<div class="content">
-								<ul>
-									@php
-										$subTotal = 0;
-										$total = 0;
-									@endphp
-
-									@foreach($cartItems as $item)
-										@php
-											$itemSubTotal = $item->quantity * $item->product->mrp_price;
-											$itemTotal = $item->quantity * $item->product->selling_price;
-											$discount = $item->product->mrp_price - $item->product->selling_price;
-
-											$subTotal += $itemSubTotal;
-											$total += $itemTotal;
-										@endphp
-										<li>
-											{{ $item->product->name }} - 
-											{{ $item->quantity }} x MRP: RS {{ $item->product->mrp_price }}, 
-											Selling Price: RS {{ $item->product->selling_price }} <br>
-											Discount: RS {{ $discount }} per item
-										</li>
-									@endforeach
-
-									<li>Sub Total (MRP): RS {{ $subTotal }}</li>
-									<li class="last"><strong>Total (Selling Price):</strong> RS {{ $total }}</li>
-									
-									<input type="hidden" name="cart_value" value="{{ $total }}">
-								</ul>
-
-
-								</div>
-							</div>
-							<!--/ End Order Widget -->
-							<!-- Order Widget -->
-							<div class="single-widget">
-								<h2>Payments</h2>
-								<div class="content">
-										<div class="radio ml-4">
-											<label class="radio-inline">
-												<input class="radio-inline"  type="radio" name="payment_method" value="cod" id="2"> Cash On Delivery
-											</label>
-											</br>
-											<label class="radio-inline">
-												<input class="radio-inline"  type="radio" name="payment_method" value="prepaid" id="3"> Online /UPI
-											</label>
-										</div>
-									</div>
-							</div>
-							<!--/ End Order Widget -->
-						
-							<!-- Payment Method Widget -->
-							<div class="single-widget payement">
-								<div class="content">
-									<img src="{{asset('frontend/images/payment-method.png')}}" alt="#">
-								</div>
-							</div>
-							<!--/ End Payment Method Widget -->
-							<!-- Button Widget -->
-							<div class="single-widget get-button">
-								<div class="content">
-									<div class="button">
-										<!-- <a href="#" class="btn">proceed to checkout</a> -->
-										<input type="submit" value="proceed to checkout" class="btn">
-									</div>
-								</div>
-							</div>
-							<!--/ End Button Widget -->
-							</form>
-							<!--/ End Form -->
-						</div>
+						<h1>Payment Failed</h1>
+						<p>Your payment could not be processed. Please try again.</p>
+						<a href="/" class="btn mt-3">Back to Home</a>
 					</div>
 				</div>
 			</div>
+		</section>
 		</section>
 		<!--/ End Checkout -->
 			
