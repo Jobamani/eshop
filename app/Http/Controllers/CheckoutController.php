@@ -13,7 +13,7 @@ class CheckoutController extends Controller
     public function index()
     {
         // Get cart data, user info, and any other necessary data for checkout
-        $cartItems = Cart::where('user_id', auth()->id())->get();
+        $cartItems = Cart::with('product')->where('user_id', auth()->id())->get();
         $category=Category::all();
         $hide= true; 
 
@@ -32,7 +32,8 @@ class CheckoutController extends Controller
 
         // Calculate the total to pay
         $cartTotal = $cartSubtotal - $cartSavings + $shippingCost;
-        return view('frontend.checkout.index', compact('cartItems','category','hide','cartSubtotal', 'cartSavings', 'shippingCost', 'cartTotal'));
+        $totalAmount = $cartSubtotal - $cartSavings + $shippingCost;
+        return view('frontend.checkout.index', compact('cartItems','category','hide','cartSubtotal', 'cartSavings', 'shippingCost', 'cartTotal','totalAmount'));
     }
 
     public function store(Request $request)

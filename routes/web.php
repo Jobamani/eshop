@@ -14,13 +14,18 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\RazorpayController;
 
-
+use App\Http\Controllers\Customer\OrderController as CustomerOrderController;
 
 
 // Route::get('/', function () {
 //     return view('frontend.homepage');
 // });
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile/order', [CustomerOrderController::class, 'index'])->name('customer.order.index');
+    Route::get('/profile/order/{order_id}', [CustomerOrderController::class, 'show'])->name('customer.order.show');
+
+});
 Route::get('/', [FrontendpageController::class, 'index'])->name('homepage');
 Route::get('/home', [FrontendpageController::class, 'index']);
 Route::get('/product-lists/category/{category_id}', [FrontendpageController::class, 'productList'])->name('product.list');
@@ -62,7 +67,8 @@ Route::get('razorpay-failure', [RazorpayController::class, 'failure'])->name('ra
 
 
 // Laravel default routes
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function () {   
+    
     return view('auth.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -70,6 +76,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 // User Login Routes

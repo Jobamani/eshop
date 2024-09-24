@@ -8,6 +8,7 @@ use Session;
 use Exception;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\Cart;
 
 class RazorpayController extends Controller
 {
@@ -35,8 +36,14 @@ class RazorpayController extends Controller
             
             $category = Category::all();
             $hide= true; 
+            $cartItems = Cart::with('product') // assuming you have a relationship between Cart and Product models
+            ->where('user_id', auth()->id())
+            ->get();
+            $totalAmount = $cartItems->sum(function ($item) {
+                return $item->quantity * $item->product->selling_price;
+                });
             // Payment was successful, handle your logic here
-            return view('frontend.checkout.success' , compact(['category','hide','orderNumber']));
+            return view('frontend.checkout.success' , compact(['category','hide','orderNumber','cartItems','totalAmount']));
         } catch (Exception $e) {
             // Payment failed, redirect or show an error
             return redirect()->route('razorpay.failure');
