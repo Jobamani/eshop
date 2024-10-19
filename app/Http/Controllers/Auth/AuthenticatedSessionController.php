@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Mail;
+use App\Mail\WelcomeMsg;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -24,6 +26,9 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {        
+        // Mail::to('jobamani1997@gmail.com')                             
+        // ->send(new WelcomeMsg());
+    //    dd("stop");
         $request->authenticate();
         
         $request->session()->regenerate();

@@ -34,7 +34,7 @@
                     <h4 class="card-title">Manage Customer</h4>  
                     <div class="table-responsive">
                                
-                        <table class="table table-hover">
+                      <table class="table table-hover">
                       <thead>
                         <tr>
                           <th>Customer Id</th>

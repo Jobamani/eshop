@@ -14,7 +14,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\RazorpayController;
 
-use App\Http\Controllers\Customer\OrderController as CustomerOrderController;
+
+use App\Http\Controllers\Customer\OrderController as CustomerOrderCon0troller;
 
 
 // Route::get('/', function () {
