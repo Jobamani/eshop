@@ -91,6 +91,11 @@
 
 
                         </table>
+                        <!-- Pagination links -->
+                        <div class="pagination">
+                        {{ $customers->links('pagination::bootstrap-4') }}
+
+                        </div>
                     </div>
                   </div>
                 </div>

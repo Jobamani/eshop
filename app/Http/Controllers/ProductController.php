@@ -15,7 +15,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('category')->get(); // Fetch all products from the database  
+        $products = Product::with('category')->paginate(5); // Fetch all products from the database  
         return view('admin.products.index', compact('products')); // Pass the data to the view
     }
 

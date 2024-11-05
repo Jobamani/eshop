@@ -11,7 +11,7 @@ class OrderController extends Controller
     // Display a listing of orders
     public function index()
     {
-        $orders = Order::with('customer')->get(); // Get all orders        
+        $orders = Order::with('customer')->paginate(10); // Get all orders        
         return view('admin.orders.index', compact('orders')); // Pass orders to the view
     }
 

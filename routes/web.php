@@ -13,6 +13,7 @@ use App\Http\Controllers\FrontendpageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\RazorpayController;
+use App\Http\Controllers\MarketingController;
 
 
 use App\Http\Controllers\Customer\OrderController as CustomerOrderCon0troller;
@@ -150,6 +151,10 @@ Route::prefix('admin')->group(function () {
         Route::get('orders-destroy/{id}/destroy', [OrderController::class, 'destroy'])->name('orders.destroy');
         Route::post('/orders/change-status', [OrderController::class, 'changeStatus'])->name('orders.changeStatus');
 
+        // Marketing
+        Route::get('marketing-promotional-offer', [MarketingController::class, 'index'])->name('admin.marketing.send.promo');
+        Route::get('marketing-promotional-offer-create', [MarketingController::class, 'create'])->name('admin.marketing.send.create');
+        Route::post('marketing-promotional-offer-store', [MarketingController::class, 'store'])->name('admin.marketing.promo.store');
 
 
         

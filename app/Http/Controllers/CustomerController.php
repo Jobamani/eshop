@@ -10,8 +10,8 @@ class CustomerController extends Controller
     public function index()
     {
        
-        $customers= User::all();    
-        // dd($customers);    
+        $customers= User::paginate(5);    
+        // dd($customers);
         return view('admin.customers.index', compact('customers'));
     }
 

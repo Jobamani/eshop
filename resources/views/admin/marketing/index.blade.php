@@ -7,7 +7,7 @@
         <div class="content-wrapper">
         <!-- page title  -->
         <div class="page-header">
-            <h3 class="page-title"> Orders </h3>
+            <h3 class="page-title"> Send Promotion offer </h3>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item "><a href="{{route('admin.dashboard')}}">Admin</a></li>
@@ -16,7 +16,7 @@
               </nav>
         </div>
         <!-- end page title -->
-         <a class= "btn btn-success mb-2" href="{{route('admin.orders.create')}}">Add</a>
+         <a class= "btn btn-success mb-2" href="{{route('admin.marketing.send.create')}}">Add</a>
     @if(session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -28,13 +28,15 @@
             {{ session('error') }}
         </div>
     @endif 
-            <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
+
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Manage Orders</h4>  
+                    <h4 class="card-title">Manage Promotion</h4>  
                     <div class="table-responsive">
                                
-                        <table class="table table-hover">
+                    <table class="table table-hover">
                       <thead>
                         <tr>
                           <th>Id</th>
@@ -43,8 +45,7 @@
                           <th>Total Amount</th>  
                           <th>Status</th> 
                           <th>Action</th>  
-                          
-                       
+                                               
                           <th>Create Date</th>
                         </tr>
                       </thead>
@@ -72,15 +73,12 @@
 
 
                         </table>
-                        <!-- Pagination links -->
-                      <div class="pagination">
-                          {{ $orders->links('pagination::bootstrap-4') }}
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-        </div> <!--end content-wrapper-->
-    </div> <!--end main-panel-->
+
+    </div> <!--end content-wrapper-->
+</div> <!--end main-panel-->
 
 @endsection

@@ -105,7 +105,23 @@
                 </ul>
               </div>
             </li>
-            @if(Auth::guard('admin')->check())
+
+            
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#ui-marketing" aria-expanded="false" aria-controls="ui-marketing">
+                <span class="menu-title">Marketing</span>
+                <i class="menu-arrow"></i>
+                <i class="fa fa-list-alt menu-icon"></i>
+              </a>
+              <div class="collapse" id="ui-marketing">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin.marketing.send.promo')}}">Send Promotion Offer</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+       
 
             <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
                 @csrf
@@ -119,19 +135,8 @@
             </li>
           <!-- end logout -->
           @elseif(Auth::guard('web')->check())
-            <form  id="logout-form2" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-            <!-- Logout -->
-            <li class="nav-item">
-              <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form2').submit();">
-                <span class="menu-title">Log Out</span>
-                <i class="fa fa-sign-out menu-icon"></i>
-              </a>
-            </li>
-          @endif
-     
-          @endif
+
+        
           <!-- checking admin routes -->
 
           <!-- customer route -->        
@@ -163,9 +168,21 @@
                 </ul>
               </div>
             </li>
+
+            <form  id="logout-form2" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            <!-- Logout -->
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form2').submit();">
+                <span class="menu-title">Log Out</span>
+                <i class="fa fa-sign-out menu-icon"></i>
+              </a>
+            </li>
           <!-- end customer route -->
 
-
+        
+          @endif
           </ul>
         </nav>
 
